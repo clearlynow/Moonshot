@@ -52,8 +52,9 @@ struct ContentView: View {
                 }
             }
         }
-        
+        .padding(.bottom, 1)
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
