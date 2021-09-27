@@ -10,6 +10,13 @@ import SwiftUI
 struct ContentView: View {
     let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
+    @State var subtitleCrew = false
+    
+    struct CrewMember {
+        var role: String
+        var astronaut: Astronaut
+    }
+    
     
     var body: some View {
 
@@ -24,11 +31,26 @@ struct ContentView: View {
                     VStack(alignment: .leading) {
                         Text(mission.displayName)
                             .font(.headline)
-                        Text(mission.formattedLaunchDate)
+                        if subtitleCrew {
+                            Text(mission.formattedLaunchDate)
+                        }
+                        else {
+                            ForEach(mission.crew, id: \.name) { member in
+                                if let match = astronauts.first(where: { $0.id == member.name }) {
+                                    Text(match.name)
+                                }
+                            }
+                            
+                        }
                     }
                 }
             }
             .navigationBarTitle("Moonshot")
+            .toolbar {
+                Button(subtitleCrew ? "Show Crew" : "Show Launch Date") {
+                    subtitleCrew.toggle()
+                }
+            }
         }
         
     }
