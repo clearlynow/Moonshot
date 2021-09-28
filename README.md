@@ -8,4 +8,4 @@ You’ll get more experience with Codable, but more importantly you’ll also wo
 https://www.hackingwithswift.com/100/swiftui/39
 
 # ScreenShots
-![Moonshot Screenshot](<https://github.com/clearlynow/Moonshot/blob/main/moonshot.gif>)
+![Moonshot Screenshot](<https://github.com/clearlynow/Moonshot/blob/main/Moonshot.gif>)
